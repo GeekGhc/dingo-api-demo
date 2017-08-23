@@ -12,4 +12,9 @@ class LessonsController extends Controller
 
         return $lessons;
     }
+
+    public function show($id)
+    {
+
+    }
 }
