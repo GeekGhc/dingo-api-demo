@@ -26,4 +26,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    //在数据保存到数据库之前会对密码进行一个预处理
+    public function setPasswordAttribute($password){
+        $this->attributes['password'] = \Hash::make($password);
+    }
 }
