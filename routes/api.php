@@ -23,12 +23,12 @@ $api->version('v1', function ($api) {
         $api->post('user/login','AuthController@authenticate');
         $api->post('user/register','AuthController@register');
 
-//        $api->get('lessons', 'LessonsController@index');
-//        $api->get('lessons/{id}', 'LessonsController@show');
+        $api->get('lessons', 'LessonsController@index');
+        $api->get('lessons/{id}', 'LessonsController@show');
     });
 
     $api->group(['namespace' => 'App\Api\Controllers','middleware'=>'jwt.auth'],function ($api){
-        $api->get('lessons','LessonsController@index');
-        $api->get('lessons/{id}','LessonsController@show');
+//        $api->get('lessons','LessonsController@index');
+//        $api->get('lessons/{id}','LessonsController@show');
     });
 });

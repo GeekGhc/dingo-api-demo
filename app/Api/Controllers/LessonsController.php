@@ -10,16 +10,18 @@ class LessonsController extends Controller
 {
     public function index()
     {
-        $lessons =  Lesson::all();
-        return $this->collection($lessons,new LessonTransformer());
+        $lessons = Lesson::all();
+//        return $this->collection($lessons,new LessonTransformer());
+
+        return $this->responseCollection($lessons, new LessonTransformer());
     }
 
     public function show($id)
     {
         $lesson = Lesson::find($id);
-        if(!$lesson){
+        if (!$lesson) {
             return $this->response()->errorNotFound("Lesson nt found");
         }
-        return $this->response()->item($lesson,new LessonTransformer());
+        return $this->responseItem($lesson, new LessonTransformer());
     }
 }
